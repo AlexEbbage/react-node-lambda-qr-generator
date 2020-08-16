@@ -1,0 +1,15 @@
+service: react-node-lambda-qr-generator
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: eu-west-1
+
+functions:
+  generateCode:
+    handler: handler.generateCode
+
+    events:
+      - http:
+          path: qr-generator/generateCode
+          method: post
