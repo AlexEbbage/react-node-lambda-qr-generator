@@ -9,10 +9,10 @@ describe("handler.js => generateCode", () => {
         it("throws_TypeError_with_null_SSID", async () => {
             // Arrange
             const event = {
-                body: {
+                 body: JSON.stringify({
                     SSID: null,
                     password: "test"
-                }
+                 })
             };
 
             try {
@@ -28,10 +28,10 @@ describe("handler.js => generateCode", () => {
         it("throws_TypeError_with_non_string_SSID", async () => {
             // Arrange
             const event = {
-                body: {
+                body: JSON.stringify({
                     SSID: {},
                     password: "test"
-                }
+                })
             };
 
             try {
@@ -47,10 +47,10 @@ describe("handler.js => generateCode", () => {
         it("throws_TypeError_with_null_password", async () => {
             // Arrange
             const event = {
-                body: {
+                body: JSON.stringify({
                     SSID: "test",
                     password: null
-                }
+                })
             };
 
             try {
@@ -66,10 +66,10 @@ describe("handler.js => generateCode", () => {
         it("throws_TypeError_with_non_string_password", async () => {
             // Arrange
             const event = {
-                body: {
+                body: JSON.stringify({
                     SSID: "test",
                     password: {}
-                }
+                })
             };
 
             try {
@@ -88,12 +88,12 @@ describe("handler.js => generateCode", () => {
             // Arrange
             const event =
             {
-                body: {
+                body: JSON.stringify({
                     SSID: "test",
                     password: "test",
                     type: "test",
                     hidden: false
-                }
+                })
             };
 
             // Act
