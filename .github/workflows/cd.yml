@@ -33,3 +33,28 @@ jobs:
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        
+  deployFrontend:
+    runs-on: ubuntu-latest
+    env:
+      working-directory: ./gh-pages
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - uses: actions/setup-node@v1
+
+    - name: Installation ⏳
+      run: yarn
+      working-directory: ${{env.working-directory}}
+   
+    - name: Build 🧱
+      run: yarn build
+      working-directory: ${{env.working-directory}}
+    
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@releases/v3      
+      with:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: gh-pages/build
