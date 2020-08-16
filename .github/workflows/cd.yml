@@ -15,11 +15,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
+      
     - name: yarn package installation ⏳
       run: yarn install
+      working-directory: ./backend/lambda/generator     
+      
+    - name: Run Tests 🧪
+      run: yarn test
       working-directory: ./backend/lambda/generator
+      
     - name: install serverless
       run: sudo npm i -g serverless
+      
     - name: serverless deploy 
       run: serverless deploy --stage prod
       working-directory: ./backend/lambda/generator  
