@@ -28,3 +28,21 @@ jobs:
     - name: Run Tests 🧪
       run: yarn test
       working-directory: ./backend/lambda/generator
+
+  frontend:
+    runs-on: ubuntu-latest
+    env:
+      working-directory: ./frontend
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: actions/setup-node@v1
+
+    - name: Install Packages ⏳
+      run: yarn install
+      working-directory: ${{env.working-directory}}
+
+    - name: Build 🧱
+      run: yarn build 
+      working-directory: ${{env.working-directory}}
