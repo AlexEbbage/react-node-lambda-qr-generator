@@ -38,7 +38,7 @@ module.exports.generateCode = async event => {
     };
 };
 
-// (async () => {
+//(async () => {
 //     let event = {
 //         body: '{\r\n' +
 //             '        "SSID": "string",\r\n' +
@@ -47,6 +47,5 @@ module.exports.generateCode = async event => {
 //             '        "hidden": "boolean"    \r\n' +
 //             '}',
 //     };
-
 //     this.generateCode(event);
-// })();
+//})();
