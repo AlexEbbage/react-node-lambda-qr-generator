@@ -19,7 +19,7 @@ jobs:
       run: yarn install
       working-directory: ./backend/lambda/generator
     - name: install serverless
-      run: yarn add serverless
+      run: sudo npm i -g serverless
     - name: serverless deploy 
       run: serverless deploy --stage prod
       working-directory: ./backend/lambda/generator  
