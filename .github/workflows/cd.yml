@@ -37,7 +37,7 @@ jobs:
   deployFrontend:
     runs-on: ubuntu-latest
     env:
-      working-directory: ./gh-pages
+      working-directory: ./frontend
     
     steps:
     - uses: actions/checkout@v2
