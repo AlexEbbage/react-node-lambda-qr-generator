@@ -84,14 +84,14 @@ describe("handler.js => generateCode", () => {
     });
 
     describe("return", () => {
-        it("returns_expected_url", async () => {
+        it("returns_expected_url_for_non_encrypted_password", async () => {
             // Arrange
             const event =
             {
                 body: JSON.stringify({
                     SSID: "test",
                     password: "test",
-                    type: "test",
+                    type: "None",
                     hidden: false
                 })
             };
@@ -99,7 +99,30 @@ describe("handler.js => generateCode", () => {
             // Act
             let response = await handler.generateCode(event);
 
-            let expectedResponse = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAYAAAB1PADUAAAAAklEQVR4AewaftIAAATNSURBVO3BQY4cSRIEQdNA/f/Lun30UwCJ9OohuSaCP1K15KRq0UnVopOqRSdVi06qFp1ULTqpWnRSteikatFJ1aKTqkUnVYtOqhadVC06qVr0yUtAfpOaCcgbap4AcqPmCSCTmgnIb1LzxknVopOqRSdViz5ZpmYTkDfU3ACZ1ExAbtTcAJnUvKFmE5BNJ1WLTqoWnVQt+uTLgDyh5gk1E5AJyBNA/iZAnlDzTSdVi06qFp1ULfrkLwdkUjMBmdRsAvKGmn/JSdWik6pFJ1WLPvnLqZmATGpugNyouVEzAfl/dlK16KRq0UnVok++TM1vUvOEmhsgk5o3gNyoeULNn+SkatFJ1aKTqkWfLAPym4BMaiYgk5oJyKTmCSCTmgnIpGYC8gSQP9lJ1aKTqkUnVYvwR/5iQCY1TwB5Qs0NkCfU/EtOqhadVC06qVr0yUtAJjUTkBs1E5An1ExAJjXfBGRSMwF5A8ik5gbIpGYCcqPmjZOqRSdVi06qFn3ykpoJyKTmBsik5gkgk5oJyKTmRs0NkD8JkCfUTEA2nVQtOqladFK16JOXgExqboDcALlRM6mZgExq3gByo+ZGzQTkCTU3ap4A8k0nVYtOqhadVC365D+m5g0gk5oJyBNA3gByo+YGyKRmAjKpeUPNppOqRSdVi06qFn2yDMgTQJ5Q84aaCcik5k8C5A0gN0AmNW+cVC06qVp0UrXok5fUTEAmNd+kZgIyqblRMwGZ1HwTkEnNBOQGyI2aGyCbTqoWnVQtOqla9MkvA7JJzaTmBsikZlIzAZnUTEAmNROQCcgNkG8C8k0nVYtOqhadVC365MuA3KiZgExqNqmZgNyomYBMaiYgN2omIJOaCcikZgLyhJpvOqladFK16KRqEf7IIiCTmhsgk5oJyI2aCciNmk1AbtQ8AWRSMwGZ1NwAuVGz6aRq0UnVopOqRfgjXwTkCTVPALlRcwPkRs1/CciNmgnIpOY3nVQtOqladFK16JOXgExqJjVvAPkmNU8AmdRMQN5QM6mZgLwBZFKz6aRq0UnVopOqRfgjfxAgk5obIE+oeQPIjZoJyBNqJiCTmjeA3Kh546Rq0UnVopOqRfgji4DcqJmATGomIDdqJiA3am6ATGqeADKpmYD8l9R800nVopOqRSdVi/BH/mJAbtTcAHlCzRNAJjUTkEnNE0Bu1Pymk6pFJ1WLTqoWffISkN+k5gkgk5pJzQRkUnMDZFKzCcik5g0gN2reOKladFK16KRq0SfL1GwC8oSaGyA3am6ATGpu1Lyh5gk1T6jZdFK16KRq0UnVok++DMgTap5QMwG5UTMBuQHyBJBJzRNA/mYnVYtOqhadVC365C8HZFIzAZmATGomIDdqJiBPAJnUTEAmNTdAJiA3ar7ppGrRSdWik6pFn/xjgExqboBMam6APAFkUvMEkEnNpGYC8gSQSc0bJ1WLTqoWnVQt+uTL1HyTmjfUTEBu1ExAJjUTkAnIjZobIJOaGzUTkG86qVp0UrXopGrRJ8uA/CYgk5oJyBNqJiBPAJnU3ACZgNyoeQLIpOabTqoWnVQtOqlahD9SteSkatFJ1aKTqkUnVYtOqhadVC06qVp0UrXopGrRSdWik6pFJ1WLTqoWnVQtOqla9D/M/ihQEHzcfgAAAABJRU5ErkJggg==";
+            let expectedResponse = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHQAAAB0CAYAAABUmhYnAAAAAklEQVR4AewaftIAAAKsSURBVO3BQW7kQAwEwSxC//9yro88NSBIM2sTjIg/WGMUa5RijVKsUYo1SrFGKdYoxRqlWKMUa5RijVKsUYo1SrFGKdYoxRrl4qEkfJPKSRI6lS4JJypdEr5J5YlijVKsUYo1ysXLVN6UhJMkPKFyh8qbkvCmYo1SrFGKNcrFhyXhDpUnVLokdCpdEjqVO5Jwh8onFWuUYo1SrFEuhknCSRI6lUmKNUqxRinWKBd/nEqXhDuS0Kn8ZcUapVijFGuUiw9T+SaVLgmdSpeEJ1R+k2KNUqxRijXKxcuS8E1J6FQ+KQm/WbFGKdYoxRrl4iGVvyQJd6j8JcUapVijFGuUi4eS0Km8KQmdyh0qJ0noknCicpKEO1TeVKxRijVKsUa5eFkSOpWTJJyodEn4TZJwh8onFWuUYo1SrFEuXqbSJeFE5SQJJypdEjqVLgmdykkSTlS6JPxPxRqlWKMUa5SLXyYJncodKl0SOpWTJHQqXRKeSMKJyhPFGqVYoxRrlPiDFyWhU+mScKLSJaFT6ZJwovJEEjqVLgknKl0SOpU3FWuUYo1SrFEuXqZyonKHyicl4USlS0Kn8psUa5RijVKsUeIPHkjCN6mcJOFEpUvCHSonSehUuiScqDxRrFGKNUqxRrl4mcqbkvBNKl0STpLwhMqbijVKsUYp1igXH5aEO1TepHJHEk6S0Kl0SThR+aRijVKsUYo1ysUwKidJ6FS6JHQqTyShU/mkYo1SrFGKNcrFcEm4Q+WOJJyodEk4UXmiWKMUa5RijXLxYSp/SRI6lROVkyR0Kl0S3lSsUYo1SrFGuXhZEr4pCScqJ0noVO5IQqfSqZyovKlYoxRrlGKNEn+wxijWKMUapVijFGuUYo1SrFGKNUqxRinWKMUapVijFGuUYo1SrFGKNco/0+cD+CKg5sEAAAAASUVORK5CYII=";
+
+            // Assert
+            expect(response.body).to.equal(expectedResponse);
+        });
+    });
+
+    describe("return", () => {
+        it("returns_expected_url_for_encrypted_password", async () => {
+            // Arrange
+            const event =
+            {
+                body: JSON.stringify({
+                    SSID: "test",
+                    password: "test",
+                    type: "WEP",
+                    hidden: false
+                })
+            };
+
+            // Act
+            let response = await handler.generateCode(event);
+
+            let expectedResponse = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHQAAAB0CAYAAABUmhYnAAAAAklEQVR4AewaftIAAAKsSURBVO3BQW7kQAwEwSxC//9yro88NSBIM2sTjIg/WGMUa5RijVKsUYo1SrFGKdYoxRqlWKMUa5RijVKsUYo1SrFGKdYoxRrl4qEkfJPKSRI6lS4JJypdEr5J5YlijVKsUYo1ysXLVN6UhJMkPKFyh8qbkvCmYo1SrFGKNcrFhyXhDpUnVLokdCpdEjqVO5Jwh8onFWuUYo1SrFEuhknCSRI6lUmKNUqxRinWKBd/nEqXhDuS0Kn8ZcUapVijFGuUiw9T+SaVLgmdSpeEJ1R+k2KNUqxRijXKxcuS8E1J6FQ+KQm/WbFGKdYoxRrl4iGVvyQJd6j8JcUapVijFGuUi4eS0Km8KQmdyh0qJ0noknCicpKEO1TeVKxRijVKsUa5eFkSOpWTJJyodEn4TZJwh8onFWuUYo1SrFEuXqbSJeFE5SQJJypdEjqVLgmdykkSTlS6JPxPxRqlWKMUa5SLXyYJncodKl0SOpWTJHQqXRKeSMKJyhPFGqVYoxRrlPiDFyWhU+mScKLSJaFT6ZJwovJEEjqVLgknKl0SOpU3FWuUYo1SrFEuXqZyonKHyicl4USlS0Kn8psUa5RijVKsUeIPHkjCN6mcJOFEpUvCHSonSehUuiScqDxRrFGKNUqxRrl4mcqbkvBNKl0STpLwhMqbijVKsUYp1igXH5aEO1TepHJHEk6S0Kl0SThR+aRijVKsUYo1ysUwKidJ6FS6JHQqTyShU/mkYo1SrFGKNcrFcEm4Q+WOJJyodEk4UXmiWKMUa5RijXLxYSp/SRI6lROVkyR0Kl0S3lSsUYo1SrFGuXhZEr4pCScqJ0noVO5IQqfSqZyovKlYoxRrlGKNEn+wxijWKMUapVijFGuUYo1SrFGKNUqxRinWKMUapVijFGuUYo1SrFGKNco/0+cD+CKg5sEAAAAASUVORK5CYII=";
 
             // Assert
             expect(response.body).to.equal(expectedResponse);

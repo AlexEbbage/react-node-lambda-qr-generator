@@ -2,7 +2,9 @@ import React from "react";
 
 const QRCode = ({qr}) => {
     return (
-        <img src={qr} alt="Generated QR Code."/>
+        <div className="qr-container">
+            <img src={qr} alt="Generated QR Code."/>
+        </div>
     );
 };
 
