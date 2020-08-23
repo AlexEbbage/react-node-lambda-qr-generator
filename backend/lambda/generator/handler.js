@@ -2,13 +2,7 @@
 const QRCode = require("qrcode");
 
 module.exports.generateCode = async event => {
-    // Event: {
-    //     SSID: string,
-    //     password: string,
-    //     type: string,
-    //     hidden: boolean
-    // }
-
+    
     console.info("Recieved Event: ");
     console.info(event);
 
@@ -50,14 +44,14 @@ module.exports.generateCode = async event => {
     };
 };
 
-//(async () => {
-//     let event = {
-//         body: '{\r\n' +
-//             '        "SSID": "string",\r\n' +
-//             '        "password": "string",\r\n' +
-//             '        "type": "string",\r\n' +
-//             '        "hidden": "boolean"    \r\n' +
-//             '}',
-//     };
-//     this.generateCode(event);
-//})();
+(async () => {
+    let event = {
+        body: '{\r\n' +
+            '        "SSID": "string",\r\n' +
+            '        "password": "string",\r\n' +
+            '        "type": "None",\r\n' +
+            '        "hidden": "boolean"    \r\n' +
+            '}',
+    };
+    this.generateCode(event);
+})();
