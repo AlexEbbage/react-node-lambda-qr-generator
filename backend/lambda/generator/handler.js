@@ -2,7 +2,7 @@
 const QRCode = require("qrcode");
 
 module.exports.generateCode = async event => {
-    
+
     console.info("Recieved Event: ");
     console.info(event);
 
@@ -19,10 +19,9 @@ module.exports.generateCode = async event => {
     }
 
     // QR Code: Construct the parameter string to be used in the construction of the QR code image.
-    // let qrString = `WIFI:T:${wifiSettings.type};S:${wifiSettings.SSID};P:${wifiSettings.password};H:${wifiSettings.hidden}`;
-    let qrCode = `WIFI:S:${event.SSID};`;
-    if (event.Type) qrCode += `T:${event.Type};P:${event.Password};`;
-    if (event.Hidden) qrCode += `H:${event.Hidden};`;
+    let qrString = `WIFI:S:${wifiSettings.SSID};`;
+    if (wifiSettings.Type) qrString += `T:${wifiSettings.Type};P:${wifiSettings.Password};`;
+    if (wifiSettings.Hidden) qrString += `H:${wifiSettings.Hidden};`;
     console.info(qrString);
 
     let qr = ""
@@ -44,14 +43,14 @@ module.exports.generateCode = async event => {
     };
 };
 
-(async () => {
-    let event = {
-        body: '{\r\n' +
-            '        "SSID": "string",\r\n' +
-            '        "password": "string",\r\n' +
-            '        "type": "None",\r\n' +
-            '        "hidden": "boolean"    \r\n' +
-            '}',
-    };
-    this.generateCode(event);
-})();
+// (async () => {
+//     let event = {
+//         body: '{\r\n' +
+//             '        "SSID": "string",\r\n' +
+//             '        "password": "string",\r\n' +
+//             '        "type": "None",\r\n' +
+//             '        "hidden": "false"    \r\n' +
+//             '}',
+//     };
+//     this.generateCode(event);
+// })();
