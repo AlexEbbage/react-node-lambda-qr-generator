@@ -36,27 +36,18 @@ function App() {
     };
 
     return (
-        <div className="App">
-            <header className="App-header">
-                {qrCode !== "" &&
-                    <QRCode qr={qrCode} />
-                }
-
-                <WifiSettingsForm submitSettings={submitSettings} />
-                <p>
-                    react-node-lambda-qr-generator <a href="https://github.com/AlexEbbage/react-node-lambda-qr-generator"
-                        target="_blank" rel="noopener noreferrer">
-                        GitHub
-          </a>
-                </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    Learn React
-        </a>
-            </header>
+        <div className="container">
+            <div className="title-container">
+                <div className="title">WiFi Code QR Generator</div>
+                <div className="description">Fill in the form with the details of the WiFi network you want the QR code to be associated with, then select 'Generate Code' to get your QR code image.</div>
+            </div>
+            {qrCode !== "" &&
+                <QRCode qr={qrCode} />
+            }
+            <WifiSettingsForm submitSettings={submitSettings} />
+            <div className="footer">
+                Made by <a href="https://github.com/werzl" target="_blank" rel="noopener noreferrer" title="Vist Adam's GitHub page">Adam Hewitt</a> and <a href="https://github.com/AlexEbbage" target="_blank" rel="noopener noreferrer" title="Vist Alex's GitHub page">Alex Ebbage</a>. Visit the repository <a href="https://github.com/AlexEbbage/react-node-lambda-qr-generator" title="Vist the project's repository">here</a>.
+            </div>
         </div>
     );
 }
