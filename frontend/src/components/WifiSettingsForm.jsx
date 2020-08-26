@@ -32,7 +32,7 @@ const WifiSettingsForm = (props) => {
                     </div>
                 </div>
                 <div className="option">
-                    <div className="label">Hidden Nework</div>
+                    <div className="label">Hidden Network</div>
                     <div className="data">
                         <input type="checkbox" onChange={e => setHidden(e.target.value)}/>
                     </div>
