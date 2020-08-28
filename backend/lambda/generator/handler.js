@@ -14,7 +14,7 @@ module.exports.generateCode = async event => {
     if (typeof (wifiSettings.SSID) !== "string" || !wifiSettings.SSID || !wifiSettings.SSID.trim()) throw new TypeError("wifiSettings.SSID is invalid");
 
     // Password & Encryption: If the encryption type is set to 'None' don't check for a password.
-    if(event.Type !== "None"){
+    if(wifiSettings.type !== "None"){
         if (typeof (wifiSettings.password) !== "string" || !wifiSettings.password) throw new TypeError("wifiSettings.password is invalid");
     }
 

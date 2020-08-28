@@ -1,0 +1,6 @@
+{
+    "jest.debugMode": true,
+    "jest.pathToJest": "./backend/lambda/generator/node_modules/jest/bin/jest.js",
+    "jestrunner.jestPath": "./backend/lambda/generator/node_modules/jest/bin/jest.js",
+    "jestrunner.configPath": "./backend/lambda/generator/jest.config.js"
+}
