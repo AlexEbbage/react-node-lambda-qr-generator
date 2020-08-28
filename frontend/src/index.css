@@ -101,3 +101,14 @@ button:active{
   transform: scale(1.05);
   animation: glow-blue-all 4s infinite;
 }
+
+@media only screen and (max-width: 768px) {
+  body::before{
+    content: none;
+  }
+
+  button{
+    padding: 5px 10px;
+    font-size: 13px;
+  }
+}
