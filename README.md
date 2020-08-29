@@ -19,6 +19,8 @@ API Gateway receives the request, and data. The API then forwards the JSON to th
 
 The generator Lambda Function takes the JSON from API Gateway. It makes use of the [qrcode](https://www.npmjs.com/package/qrcode) lib from NPM. A QR code is generated in the format: 'WIFI:T:WPA;S:MyNetworkName;P:ThisIsMyPassword;'. The code is returned to the frontend as a base64 image.
 
+![](https://raw.githubusercontent.com/AlexEbbage/react-node-lambda-qr-generator/master/documents/architecture.png)
+
 ### Automation
 #### CI
 The Continuous Integration workflow runs on a Pull Request into master. It's split into two tasks: 'test' and 'frontend'.
