@@ -11,7 +11,8 @@ The frontend on gh-pages takes the following inputs:
 - Encryption type
 - Network Name (SSID)
 - Password
-- Hidden (true/false)
+- Hidden (true/false)  
+  
 Once the user submits their details, a POST request is made to API Gateway.
 
 API Gateway receives the request, and data. The API then forwards the JSON to the generator Lambda Function.
