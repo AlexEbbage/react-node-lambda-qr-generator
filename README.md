@@ -32,4 +32,4 @@ By default, GitHub Actions treats warnings as errors.
 #### CD
 The Continuous Deployment workflow runs on a merge into master. It's split into two tasks: 'deploy' and 'deployFrontend'.
 The 'deploy' task performs the same test run as the 'test' task from the CI workflow, and if all tests pass, the [serverless](https://www.npmjs.com/package/serverless) framework is installed, and then used to deploy the Lambda Functions and API Gateway configurations to the AWS account specified from this repository's secrets.
-It also uses Yarn to build/test the React code, and if successful, Deploys the code to the gh-pages branch.
+The 'deployFrontend' task uses Yarn to build/test the React code, and if successful, Deploys the code to the gh-pages branch.
