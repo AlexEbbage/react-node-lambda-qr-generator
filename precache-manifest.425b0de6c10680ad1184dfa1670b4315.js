@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9ebfe52efffcc4c2aaa80978c73decae",
+    "revision": "d7e3074467932f4c9c4c4bc4ed44e570",
     "url": "/react-node-lambda-qr-generator/index.html"
   },
   {
-    "revision": "4c0ba7880778728be48f",
-    "url": "/react-node-lambda-qr-generator/static/css/main.c00d4fc8.chunk.css"
+    "revision": "f614fa1d52217d96ee62",
+    "url": "/react-node-lambda-qr-generator/static/css/main.e2a30961.chunk.css"
   },
   {
     "revision": "2dc9f5ddd8fc2ba12cbb",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-node-lambda-qr-generator/static/js/2.ab5cc03d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "4c0ba7880778728be48f",
-    "url": "/react-node-lambda-qr-generator/static/js/main.b7e11b7b.chunk.js"
+    "revision": "f614fa1d52217d96ee62",
+    "url": "/react-node-lambda-qr-generator/static/js/main.66f4f145.chunk.js"
   },
   {
     "revision": "beca09739018e9abbccc",
