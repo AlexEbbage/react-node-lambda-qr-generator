@@ -76,7 +76,6 @@
 }
 
 .option .label {
-  font-weight: bold;
   text-align: right;
   white-space: nowrap;
   vertical-align: top;
@@ -105,6 +104,19 @@
   width: 20px;
   height: 20px;
   margin-top: 5px;
+}
+
+.message-container{
+  width: 100%;
+  margin-top: 12px;
+  text-align: center;
+  font-size: 17px;
+  font-family: 'IBM-Bold';
+  color: #139224;
+}
+
+.message-container.error{
+  color: #8f1313;
 }
 
 .button-container {
@@ -176,6 +188,11 @@
     width: 19px;
     height: 19px;
     margin-top: 4px;
+  }
+
+  .message-container{
+    margin-top: 10px;
+    font-size: 12px;
   }
 
   .button-container{

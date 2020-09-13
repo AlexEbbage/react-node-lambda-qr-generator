@@ -5,6 +5,9 @@ const WifiSettingsForm = (props) => {
     const [SSID, setSSID] = useState("");
     const [password, setPassword] = useState("");
     const [hidden, setHidden] = useState(false);
+    
+    let messageClass = "message-container";
+    if(props.isError) messageClass += " error";
 
     return (
         <div className="form-container">
@@ -38,6 +41,9 @@ const WifiSettingsForm = (props) => {
                     </div>
                 </div>
             </div>
+            {props.resultMessage !== "" &&
+                <div className={messageClass}>{props.resultMessage}</div>
+            }
             <div className="button-container">
                 <button type="button" onClick={() => props.submitSettings(type, SSID, password, hidden)}>Generate Code</button>
             </div>
