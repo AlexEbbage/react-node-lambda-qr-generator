@@ -54,7 +54,7 @@ function App() {
             {qrCode !== "" &&
                 <QRCode qr={qrCode} />
             }
-            <WifiSettingsForm submitSettings={submitSettings} resultMessage={resultMessage} isError={isError}/>
+            <WifiSettingsForm submitSettings={submitSettings} resultMessage={resultMessage} isError={isError} qrCode={qrCode}/>
             <div className="footer">
                 Made by <a href="https://github.com/werzl" target="_blank" rel="noopener noreferrer" title="Vist Adam's GitHub page">Adam Hewitt</a> and <a href="https://github.com/AlexEbbage" target="_blank" rel="noopener noreferrer" title="Vist Alex's GitHub page">Alex Ebbage</a>. Visit the repository <a href="https://github.com/AlexEbbage/react-node-lambda-qr-generator" title="Vist the project's repository">here</a>.
             </div>
