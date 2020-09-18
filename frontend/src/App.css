@@ -136,6 +136,24 @@
   text-align: center;
 }
 
+.button-container a{
+  opacity: 1;
+}
+
+.button-container > button:first-of-type{
+  margin-right: 10px;
+}
+
+button.download{
+  background: rgb(24, 105, 17);
+}
+
+button.download:hover,
+button.download:active{
+  background: rgb(51, 184, 34);
+  animation: glow-green-all 4s infinite;
+}
+
 .footer {
   width: 100%;
   margin-top: 20px;

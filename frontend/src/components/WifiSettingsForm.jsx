@@ -8,8 +8,6 @@ const WifiSettingsForm = (props) => {
     
     let messageClass = props.isError ? "message-container error" : "message-container success";
 
-
-
     return (
         <div className="form-container">
             <div className="form">
@@ -47,7 +45,13 @@ const WifiSettingsForm = (props) => {
                 :<div className="message-container">Fields marked with a <span className="required">*</span> are required.</div>
             }
             <div className="button-container">
-                <button type="button" onClick={() => props.submitSettings(type, SSID, password, hidden)}>Generate Code</button>
+                <button type="button" onClick={() => props.submitSettings(type, SSID, password, hidden)}>Generate QR Code</button>
+                {props.qrCode !== "" &&
+                    <a href={props.qrCode} download="qr-code.png" title="Click to download the QR code">
+                        <button type="button" className="download">Download QR Code</button>
+                    </a>
+                    
+                }
             </div>
         </div>
     );
