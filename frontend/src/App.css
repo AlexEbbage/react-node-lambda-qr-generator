@@ -119,11 +119,15 @@
   text-align: center;
   font-size: 17px;
   font-family: 'IBM-Bold';
-  color: #139224;
+  color: #777;
 }
 
 .message-container.error{
   color: #8f1313;
+}
+
+.message-container.success{
+  color: #139224;
 }
 
 .button-container {
@@ -140,6 +144,9 @@
   text-align: center;
 }
 
+.required{
+  color: #8f1313;
+}
 
 @media only screen and (max-width: 768px) {
   .container {

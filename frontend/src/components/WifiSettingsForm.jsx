@@ -6,8 +6,9 @@ const WifiSettingsForm = (props) => {
     const [password, setPassword] = useState("");
     const [hidden, setHidden] = useState(false);
     
-    let messageClass = "message-container";
-    if(props.isError) messageClass += " error";
+    let messageClass = props.isError ? "message-container error" : "message-container success";
+
+
 
     return (
         <div className="form-container">
@@ -23,13 +24,13 @@ const WifiSettingsForm = (props) => {
                     </div>
                 </div>
                 <div className="option">
-                    <div className="label">Network Name</div>
+                    <div className="label">Network Name<span className="required">*</span></div>
                     <div className="data">
                         <input type="text" placeholder="SSID" onChange={e => setSSID(e.target.value)}/>
                     </div>
                 </div>
                 <div className="option">
-                    <div className="label">Password</div>
+                    <div className="label">Password{type !== 'None' && (<span className="required">*</span>)}</div>
                     <div className="data">
                         <input type="text" placeholder="Password" onChange={e => setPassword(e.target.value)}/>
                     </div>
@@ -41,8 +42,9 @@ const WifiSettingsForm = (props) => {
                     </div>
                 </div>
             </div>
-            {props.resultMessage !== "" &&
-                <div className={messageClass}>{props.resultMessage}</div>
+            {props.resultMessage !== "" 
+                ?<div className={messageClass}>{props.resultMessage}</div>
+                :<div className="message-container">Fields marked with a <span className="required">*</span> are required.</div>
             }
             <div className="button-container">
                 <button type="button" onClick={() => props.submitSettings(type, SSID, password, hidden)}>Generate Code</button>
