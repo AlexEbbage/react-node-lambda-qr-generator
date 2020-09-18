@@ -51,6 +51,13 @@
   animation: fade-in 2s ease-in-out;
 }
 
+.qr-container:hover,
+.qr-container:active{
+  background: rgb(36, 137, 167);
+  transform: scale(1.05);
+  animation: glow-blue-all 4s infinite;
+}
+
 .qr-container img {
   width: 200px;
   height: 200px;
